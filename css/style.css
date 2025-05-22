@@ -3,19 +3,21 @@
 /* ----- Variables ----- */
 :root {
     /* Colors */
-    --primary: #7758ff;
-    --primary-dark: #5b43c8;
-    --secondary: #00bfa6;
-    --secondary-dark: #009b8a;
-    --dark: #1a1a2e;
-    --gray-dark: #333;
-    --gray: #6c757d;
-    --gray-light: #f8f9fa;
     --light: #ffffff;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
+    --gray-light: #f9fafb; /* Adjusted for more minimalism */
+    --gray: #9ca3af; /* Adjusted to a more neutral gray */
+    --gray-dark: #1f2937; /* Adjusted to a more modern dark gray */
+    --primary: #3b82f6; /* Muted blue */
+    --primary-dark: #2563eb; /* Darker shade for primary accent */
+    --dark: #111827; /* Very dark gray or off-black */
+    --primary-bg-light: color-mix(in srgb, var(--primary) 10%, var(--light));
+    --border-color: #e5e7eb; /* Added for navbar border */
+    /* --secondary: #00bfa6; */ /* Commented out */
+    /* --secondary-dark: #009b8a; */ /* Commented out */
+    /* --success: #28a745; */ /* Commented out */
+    /* --info: #17a2b8; */ /* Commented out */
+    /* --warning: #ffc107; */ /* Commented out */
+    /* --danger: #dc3545; */ /* Commented out */
 
     /* Typography */
     --font-family:
@@ -24,24 +26,20 @@
 
     /* Layout */
     --container-width: 1200px;
-    --header-height: 70px;
-    --section-padding: 80px 0;
-    --section-padding-mobile: 50px 0;
+    --header-height: 4.5rem; /* Adjusted to rem-based consistency */
+    --section-padding: 5rem 0; /* Adjusted to rem-based consistency */
+    --section-padding-mobile: 3rem 0; /* Adjusted to rem-based consistency */
 
     /* Border Radius */
-    --border-radius-sm: 4px;
-    --border-radius: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 20px;
+    --border-radius-sm: 0.25rem; /* 4px */
+    --border-radius: 0.5rem; /* 8px */
+    --border-radius-lg: 0.75rem; /* 12px */
 
     /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    /* Removed shadow variables for a flatter look */
 
     /* Transitions */
-    --transition-speed: 0.3s;
+    --transition-speed: 0.2s; /* Adjusted for faster/subtler transitions */
 }
 
 /* ----- Base Styles ----- */
@@ -58,7 +56,7 @@ html {
 body {
     font-family: var(--font-family);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7; /* Updated line-height */
     color: var(--gray-dark);
     background-color: var(--light);
     overflow-x: hidden;
@@ -70,9 +68,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 700;
+    font-weight: 600; /* Updated font-weight */
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Maintained margin-bottom, can be reviewed later */
     color: var(--dark);
 }
 
@@ -82,16 +80,17 @@ h1 {
 
 h2 {
     font-size: 2.25rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Maintained margin-bottom, can be reviewed later */
 }
 
 h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Maintained margin-bottom, can be reviewed later */
 }
 
 p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem; /* Updated margin-bottom */
+    color: var(--gray-dark); /* Ensured color */
 }
 
 a {
@@ -108,11 +107,12 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
+    display: block; /* Added display: block */
 }
 
 ul,
 ol {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem; /* Updated margin-bottom */
 }
 
 .container {
@@ -123,17 +123,17 @@ ol {
 }
 
 section {
-    padding: var(--section-padding);
+    padding: var(--section-padding); /* Ensures usage of new layout variable */
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem; /* Updated margin-bottom */
 }
 
 .tag {
     display: inline-block;
-    background-color: rgba(119, 88, 255, 0.1);
+    background-color: var(--primary-bg-light); /* Updated background-color */
     color: var(--primary);
     font-size: 0.875rem;
     font-weight: 600;
@@ -150,7 +150,7 @@ section {
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    border: none;
+    border: 1px solid transparent; /* Updated border */
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -162,30 +162,34 @@ section {
 .primary-btn {
     background-color: var(--primary);
     color: var(--light);
+    border-color: var(--primary); /* Ensured border-color matches background */
 }
 
 .primary-btn:hover {
     background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
     color: var(--light);
-    transform: translateY(-2px);
+    /* transform effects are already removed */
 }
 
 .secondary-btn {
     background-color: transparent;
     color: var(--primary);
-    border: 2px solid var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .secondary-btn:hover {
-    background-color: var(--primary);
-    color: var(--light);
-    transform: translateY(-2px);
+    background-color: var(--primary-bg-light);
+    color: var(--primary);
+    border-color: var(--primary); /* Ensured border color remains consistent */
+    /* transform effects are already removed */
 }
 
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /* Ensure this doesn't cause overflow on very small screens */
     flex-wrap: wrap;
+    justify-content: center; /* Center buttons if they wrap */
     margin-top: 2rem;
 }
 
@@ -197,7 +201,7 @@ section {
     padding: 0 20px;
     height: var(--header-height);
     background-color: var(--light);
-    box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border-color); /* Updated border */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -229,35 +233,40 @@ section {
 .nav-links a {
     color: var(--gray-dark);
     font-weight: 500;
-    position: relative;
+    /* position: relative; Removed */
 }
 
-.nav-links a:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary);
-    transition: all var(--transition-speed) ease;
-}
+/* .nav-links a:before { */ /* Removed underline animation */
+    /* content: ""; */
+    /* position: absolute; */
+    /* width: 0; */
+    /* height: 2px; */
+    /* bottom: -5px; */
+    /* left: 0; */
+    /* background-color: var(--primary); */
+    /* transition: all var(--transition-speed) ease; */
+/* } */
 
 .nav-links li a:hover,
 .nav-links li a.active {
     color: var(--primary);
 }
-.nav-links a:hover:before,
-.nav-links a.active:before {
-    width: 100%;
-}
+/* .nav-links a:hover:before, */ /* Removed underline animation */
+/* .nav-links a.active:before { */
+    /* width: 100%; */
+/* } */
 
-.nav-links a.active {
+.nav-links a.active { /* Ensured .active has primary color */
     color: var(--primary);
 }
 
 .hamburger {
-    display: none;
+    display: none; /* Hide by default on desktop */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1001; /* Ensure hamburger is above other content, like sticky navbar */
 }
 
 .bar {
@@ -266,37 +275,57 @@ section {
     height: 3px;
     margin: 5px auto;
     background-color: var(--dark);
-    transition: all var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease; /* Keep this for individual bar animation */
 }
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0.1s ease-out; /* Faster opacity for middle bar */
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    /* transition is already on .bar, ensure it's smooth */
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    /* transition is already on .bar, ensure it's smooth */
+}
+
+/* Mobile Navigation Menu Slide */
+/* .nav-links is defined below, ensure its transition is updated there if needed */
+
 
 /* ----- Hero Section ----- */
 .hero {
-    padding: 100px 0;
+    padding: 6rem 0; /* Updated padding */
     overflow: hidden;
-    background-color: var(--light);
+    background-color: var(--gray-light); /* Updated background-color */
     position: relative;
 }
 
-.hero:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image:
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(119, 88, 255, 0.1) 0%,
-            transparent 60%
-        ),
-        radial-gradient(
-            circle at 10% 70%,
-            rgba(0, 191, 166, 0.1) 0%,
-            transparent 50%
-        );
-    z-index: -1;
-}
+/* .hero:before { */ /* Removed radial gradients */
+    /* content: ""; */
+    /* position: absolute; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* top: 0; */
+    /* left: 0; */
+    /* background-image: */
+        /* radial-gradient( */
+            /* circle at 80% 10%, */
+            /* rgba(119, 88, 255, 0.1) 0%, */
+            /* transparent 60% */
+        /* ), */
+        /* radial-gradient( */
+            /* circle at 10% 70%, */
+            /* rgba(0, 191, 166, 0.1) 0%, */
+            /* transparent 50% */
+        /* ); */
+    /* z-index: -1; */
+/* } */
 
 .hero .container {
     display: flex;
@@ -309,7 +338,7 @@ section {
     flex: 1;
 }
 
-.hero-image {
+.hero-image { /* This might be part of hero-visual or a separate image holder */
     flex: 1;
     display: flex;
     justify-content: center;
@@ -317,13 +346,19 @@ section {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3.5rem; /* Maintained font-size */
+    font-weight: 600; /* Ensured font-weight */
+    color: var(--dark); /* Ensured color */
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
+.hero-content p { /* Ensured styling for paragraph in hero */
+    color: var(--gray-dark);
+}
+
 .gradient-text {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark)); /* Updated gradient */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -332,7 +367,7 @@ section {
 
 /* ----- Features Section ----- */
 .features {
-    background-color: var(--gray-light);
+    background-color: var(--light); /* Updated background-color */
 }
 
 .feature-grid {
@@ -342,27 +377,29 @@ section {
 }
 
 .feature-card {
-    background-color: var(--light);
+    background-color: var(--gray-light); /* Updated background-color */
     border-radius: var(--border-radius-lg);
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed box-shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    /* transform: translateY(-5px); */ /* Removed transform */
+    /* box-shadow: var(--shadow-lg); */ /* Removed box-shadow */
+    border-color: var(--primary); /* Added border-color change on hover */
 }
 
 .feature-icon {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Updated font-size */
     color: var(--primary);
     margin-bottom: 1rem;
 }
 
 /* ----- Course Highlight Section ----- */
 .course-highlight {
-    background-color: var(--light);
+    background-color: var(--gray-light); /* Updated background-color */
 }
 
 .course-highlight .container {
@@ -392,13 +429,13 @@ section {
 }
 
 .course-features i {
-    color: var(--success);
+    color: var(--primary); /* Updated color */
     margin-right: 0.75rem;
 }
 
 /* ----- Testimonials Section ----- */
 .testimonials {
-    background-color: var(--gray-light);
+    background-color: var(--light); /* Updated background-color */
 }
 
 .testimonial-slider {
@@ -413,7 +450,7 @@ section {
     position: absolute;
     width: 100%;
     opacity: 0;
-    transition: all 0.5s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Updated transition */
     transform: translateX(100%);
 }
 
@@ -423,25 +460,26 @@ section {
 }
 
 .testimonial-content {
-    background-color: var(--light);
+    background-color: var(--gray-light); /* Updated background-color */
     padding: 2rem;
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed box-shadow */
+    border: 1px solid var(--border-color); /* Added border */
     margin-bottom: 1.5rem;
     position: relative;
 }
 
-.testimonial-content:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50px;
-    width: 30px;
-    height: 30px;
-    background-color: var(--light);
-    transform: rotate(45deg);
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
-}
+/* .testimonial-content:after { */ /* Removed speech bubble tail */
+    /* content: ""; */
+    /* position: absolute; */
+    /* bottom: -15px; */
+    /* left: 50px; */
+    /* width: 30px; */
+    /* height: 30px; */
+    /* background-color: var(--light); */
+    /* transform: rotate(45deg); */
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05); */
+/* } */
 
 .testimonial-content p {
     font-style: italic;
@@ -451,24 +489,26 @@ section {
 .testimonial-author {
     display: flex;
     align-items: center;
-    padding-left: 30px;
+    padding-left: 0; /* Adjusted padding */
 }
 
-.testimonial-author img {
+.testimonial-author img { /* Assuming img is the icon container or part of it */
     width: 60px;
     height: 60px;
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
+    /* background: transparent; */ /* Ensured no background if it's an icon wrapper */
 }
 
 .author-info h4 {
     margin-bottom: 0.25rem;
+    color: var(--dark); /* Ensured color */
 }
 
 .author-info p {
     margin-bottom: 0;
-    color: var(--gray);
+    color: var(--gray); /* Ensured color */
     font-size: 0.875rem;
 }
 
@@ -480,21 +520,23 @@ section {
 }
 
 .slider-arrow {
-    background: var(--light);
-    border: 1px solid var(--gray);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius); /* Standardized border-radius */
+    width: 2.5rem; /* Standardized size */
+    height: 2.5rem; /* Standardized size */
+    padding: 0; /* Removed padding if icon is centered */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: all var(--transition-speed) ease;
+    color: var(--gray-dark);
 }
 
 .slider-arrow:hover {
-    background: var(--primary);
-    color: var(--light);
+    background: var(--primary-bg-light);
+    color: var(--primary);
     border-color: var(--primary);
 }
 
@@ -506,7 +548,7 @@ section {
 .dot {
     width: 10px;
     height: 10px;
-    background-color: var(--gray);
+    background-color: var(--border-color); /* Updated background-color */
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
@@ -514,24 +556,25 @@ section {
 }
 
 .dot.active {
-    background-color: var(--primary);
-    transform: scale(1.3);
+    background-color: var(--primary); /* Updated background-color for active dot */
+    transform: scale(1.2); /* Maintained scale */
 }
 
 /* ----- CTA Section ----- */
 .cta-section {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    background-color: var(--primary); /* Updated to solid background-color */
     color: var(--light);
     text-align: center;
-    padding: 60px 0;
+    padding: 60px 0; /* Maintained padding, can be adjusted */
 }
 
 .cta-section h2 {
-    color: var(--light);
+    color: var(--light); /* Ensured color */
 }
 
 .cta-section p {
     margin-bottom: 2rem;
+    color: var(--light); /* Ensured color */
 }
 
 .cta-section .btn {
@@ -539,13 +582,13 @@ section {
 }
 
 .cta-section .secondary-btn {
-    border-color: var(--light);
-    color: var(--light);
+    border-color: var(--light); /* Ensured border-color */
+    color: var(--light); /* Ensured color */
 }
 
 .cta-section .secondary-btn:hover {
-    background-color: var(--light);
-    color: var(--primary);
+    background-color: var(--light); /* Ensured background-color on hover */
+    color: var(--primary); /* Ensured color on hover */
 }
 
 /* ----- Footer ----- */
@@ -570,6 +613,10 @@ footer {
     display: inline-block;
 }
 
+.footer-logo a span { /* Added for specificity */
+    color: var(--primary);
+}
+
 .footer-column h3 {
     color: var(--light);
     margin-bottom: 1.25rem;
@@ -590,7 +637,7 @@ footer {
 }
 
 .footer-column a:hover {
-    color: var(--secondary);
+    color: var(--primary); /* Updated hover color */
 }
 
 .social-links {
@@ -605,15 +652,16 @@ footer {
     justify-content: center;
     width: 36px;
     height: 36px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in srgb, var(--light) 10%, transparent); /* Updated background-color */
     border-radius: 50%;
     color: var(--light);
     transition: all var(--transition-speed) ease;
 }
 
 .social-links a:hover {
-    background-color: var(--primary);
-    transform: translateY(-3px);
+    background-color: var(--primary); /* Updated background-color on hover */
+    color: var(--light); /* Ensured color on hover */
+    /* transform: translateY(-3px); */ /* Removed transform */
 }
 
 .contact-info {
@@ -629,11 +677,11 @@ footer {
 
 .contact-info i {
     margin-right: 0.75rem;
-    color: var(--secondary);
+    color: var(--primary); /* Updated color */
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid color-mix(in srgb, var(--light) 15%, transparent); /* Updated border-top color */
     padding: 20px 0;
     text-align: center;
 }
@@ -641,7 +689,7 @@ footer {
 .footer-bottom p {
     margin: 0;
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: color-mix(in srgb, var(--light) 70%, transparent); /* Updated color */
 }
 
 /* ----- Modal ----- */
@@ -652,24 +700,37 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
+    display: flex; /* Changed from none */
     justify-content: center;
     align-items: center;
     z-index: 1100;
+    opacity: 0; /* Added */
+    visibility: hidden; /* Added */
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s; /* Added */
 }
 
 .modal.active {
-    display: flex;
+    /* display: flex; */ /* No longer needed here as base is flex */
+    opacity: 1; /* Added */
+    visibility: visible; /* Added */
+    transition-delay: 0s; /* Added */
 }
 
 .modal-content {
     background-color: var(--light);
     border-radius: var(--border-radius-lg);
+    transform: scale(0.95); /* Added */
+    transition: transform 0.2s ease-out; /* Added */
     padding: 2rem;
-    box-shadow: var(--shadow-lg);
+    /* box-shadow: var(--shadow-lg); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     max-width: 500px;
     width: 90%;
     position: relative;
+}
+
+.modal.active .modal-content { /* Added */
+    transform: scale(1);
 }
 
 .close-modal {
@@ -682,7 +743,7 @@ footer {
 
 /* ----- Forms ----- */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Updated margin-bottom */
 }
 
 .form-row {
@@ -699,6 +760,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--gray-dark); /* Ensured color */
 }
 
 input,
@@ -706,10 +768,12 @@ select,
 textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color); /* Updated border color */
     border-radius: var(--border-radius);
     font-family: var(--font-family);
     font-size: 1rem;
+    background-color: var(--light); /* Ensured background-color */
+    color: var(--gray-dark); /* Ensured text color */
     transition: all var(--transition-speed) ease;
 }
 
@@ -718,7 +782,7 @@ select:focus,
 textarea:focus {
     border-color: var(--primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(119, 88, 255, 0.25);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
 .radio-group {
@@ -740,10 +804,10 @@ textarea:focus {
 
 /* ----- Course Page ----- */
 .course-header {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    background: var(--primary); /* Updated background */
     color: var(--light);
     text-align: center;
-    padding: 60px 0;
+    padding: 4rem 0; /* Adjusted padding */
 }
 
 .course-header .container {
@@ -755,11 +819,13 @@ textarea:focus {
 .course-header h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--light); /* Ensured color */
 }
 
 .course-header .course-subtitle {
     font-size: 1.25rem;
     margin-bottom: 2rem;
+    color: var(--light); /* Ensured color */
 }
 
 .course-meta {
@@ -814,17 +880,19 @@ textarea:focus {
     background-color: var(--light);
     border-radius: var(--border-radius-lg);
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .prerequisite-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    /* transform: translateY(-5px); */ /* Removed transform */
+    /* box-shadow: var(--shadow-lg); */ /* Removed shadow */
+    border-color: var(--primary); /* Added border color change on hover */
 }
 
 .prerequisite-card i {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Updated font-size */
     color: var(--primary);
     margin-bottom: 1rem;
 }
@@ -834,11 +902,11 @@ textarea:focus {
 }
 
 .curriculum-accordion {
-    border-top: 1px solid var(--gray);
+    border-top: 1px solid var(--border-color); /* Updated border color */
 }
 
 .accordion-item {
-    border-bottom: 1px solid var(--gray);
+    border-bottom: 1px solid var(--border-color); /* Updated border color */
 }
 
 .accordion-header {
@@ -847,20 +915,29 @@ textarea:focus {
     align-items: center;
     cursor: pointer;
     padding: 1rem;
-    transition: all var(--transition-speed) ease;
+    transition: background-color var(--transition-speed) ease; /* Updated transition */
 }
 
 .accordion-header:hover {
-    background-color: var(--gray-light);
+    background-color: var(--primary-bg-light); /* Updated hover background */
 }
 
 .accordion-icon {
     font-size: 1.25rem;
+    color: var(--primary); /* Added color */
+    transition: transform var(--transition-speed) ease; /* Added transition for rotation */
+}
+
+.accordion-header.active .accordion-icon { /* Added for icon rotation */
+    transform: rotate(180deg);
 }
 
 .accordion-content {
     padding: 1rem;
-    display: none;
+    /* display: none; */ /* JS will toggle a class that changes max-height */
+    max-height: 0; /* Added for transition */
+    overflow: hidden; /* Added for transition */
+    transition: max-height 0.3s ease-out; /* Updated transition for smooth open/close */
 }
 
 .accordion-content ul {
@@ -869,7 +946,8 @@ textarea:focus {
 }
 
 .accordion-content.active {
-    display: block;
+    /* display: block; */ /* No longer needed, handled by max-height */
+    max-height: 500px; /* Adjust as needed, should be more than enough for content */
 }
 
 .instructors {
@@ -886,13 +964,15 @@ textarea:focus {
     background-color: var(--light);
     border-radius: var(--border-radius-lg);
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .instructor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    /* transform: translateY(-5px); */ /* Removed transform */
+    /* box-shadow: var(--shadow-lg); */ /* Removed shadow */
+    border-color: var(--primary); /* Added border color change on hover */
 }
 
 .instructor-image img {
@@ -927,7 +1007,8 @@ textarea:focus {
     background-color: var(--light);
     border-radius: var(--border-radius-lg);
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
     position: relative;
 }
@@ -976,7 +1057,7 @@ textarea:focus {
 }
 
 .pricing-features i {
-    color: var(--success);
+    color: var(--primary); /* Updated color */
     margin-right: 0.75rem;
 }
 
@@ -994,16 +1075,16 @@ textarea:focus {
     margin: 0 10px;
 }
 
-.faq {
+.faq { /* This is generic, ensure it applies to course page FAQ and main FAQ if structure is similar */
     background-color: var(--gray-light);
 }
 
 .faq-accordion {
-    border-top: 1px solid var(--gray);
+    border-top: 1px solid var(--border-color); /* Updated border color */
 }
 
 .faq-accordion .accordion-item {
-    border-bottom: 1px solid var(--gray);
+    border-bottom: 1px solid var(--border-color); /* Updated border color */
 }
 
 .faq-accordion .accordion-header {
@@ -1012,24 +1093,32 @@ textarea:focus {
     align-items: center;
     cursor: pointer;
     padding: 1rem;
-    transition: all var(--transition-speed) ease;
+    transition: background-color var(--transition-speed) ease; /* Updated transition */
 }
 
 .faq-accordion .accordion-header:hover {
-    background-color: var(--gray-light);
+    background-color: var(--primary-bg-light); /* Updated hover background */
 }
 
 .faq-accordion .accordion-icon {
     font-size: 1.25rem;
+    color: var(--primary); /* Added color */
+    transition: transform var(--transition-speed) ease; /* Added transition for rotation */
+}
+
+.faq-accordion .accordion-header.active .accordion-icon { /* Added for icon rotation */
+    transform: rotate(180deg);
 }
 
 .faq-accordion .accordion-content {
     padding: 1rem;
-    display: none;
+    max-height: 0; /* Added for transition */
+    overflow: hidden; /* Added for transition */
+    transition: max-height 0.3s ease-out; /* Updated transition for smooth open/close */
 }
 
 .faq-accordion .accordion-content.active {
-    display: block;
+    max-height: 500px; /* Adjust as needed */
 }
 
 .view-more-faq {
@@ -1038,10 +1127,10 @@ textarea:focus {
 }
 
 .enrollment-cta {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    background: var(--primary); /* Updated background */
     color: var(--light);
     text-align: center;
-    padding: 60px 0;
+    padding: 4rem 0; /* Adjusted padding */
 }
 
 .enrollment-form {
@@ -1097,11 +1186,12 @@ textarea:focus {
         left: -100%;
         top: var(--header-height);
         flex-direction: column;
-        background-color: var(--light);
+        background-color: var(--light); /* Ensured background color */
         width: 100%;
         height: calc(100vh - var(--header-height));
         transition: 0.3s;
-        box-shadow: var(--shadow);
+        /* box-shadow: var(--shadow); */ /* Removed shadow */
+        border-top: 1px solid var(--border-color); /* Added border for separation */
         padding: 2rem;
         gap: 1rem;
     }
@@ -1131,6 +1221,10 @@ textarea:focus {
 
 /* ----- Mobile Typography Adjustments ----- */
 @media (max-width: 768px) {
+    .contact-grid { /* Stack contact form and info on mobile */
+        grid-template-columns: 1fr;
+    }
+
     h1 {
         font-size: 2.25rem;
     }
@@ -1175,10 +1269,10 @@ textarea:focus {
 
 /* ----- Contact Page ----- */
 .contact-header {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    background: var(--primary); /* Updated background */
     color: var(--light);
     text-align: center;
-    padding: 60px 0;
+    padding: 4rem 0; /* Adjusted padding */
 }
 
 .contact-main {
@@ -1193,14 +1287,16 @@ textarea:focus {
 
 .contact-form-container {
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     border-radius: var(--border-radius-lg);
     background-color: var(--light);
 }
 
 .contact-info-container {
     padding: 2rem;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     border-radius: var(--border-radius-lg);
     background-color: var(--light);
 }
@@ -1230,16 +1326,16 @@ textarea:focus {
     gap: 0.5rem;
 }
 
-.faq-short {
+.faq-short { /* Assuming this is part of contact or a generic short FAQ section */
     background-color: var(--gray-light);
 }
 
 .faq-short .faq-accordion {
-    border-top: 1px solid var(--gray);
+    border-top: 1px solid var(--border-color); /* Updated border color */
 }
 
 .faq-short .faq-accordion .accordion-item {
-    border-bottom: 1px solid var(--gray);
+    border-bottom: 1px solid var(--border-color); /* Updated border color */
 }
 
 .faq-short .faq-accordion .accordion-header {
@@ -1248,31 +1344,39 @@ textarea:focus {
     align-items: center;
     cursor: pointer;
     padding: 1rem;
-    transition: all var(--transition-speed) ease;
+    transition: background-color var(--transition-speed) ease; /* Updated transition */
 }
 
 .faq-short .faq-accordion .accordion-header:hover {
-    background-color: var(--gray-light);
+    background-color: var(--primary-bg-light); /* Updated hover background */
 }
 
 .faq-short .faq-accordion .accordion-icon {
     font-size: 1.25rem;
+    color: var(--primary); /* Added color */
+    transition: transform var(--transition-speed) ease; /* Added transition for rotation */
+}
+
+.faq-short .faq-accordion .accordion-header.active .accordion-icon { /* Added for icon rotation */
+    transform: rotate(180deg);
 }
 
 .faq-short .faq-accordion .accordion-content {
     padding: 1rem;
-    display: none;
+    max-height: 0; /* Added for transition */
+    overflow: hidden; /* Added for transition */
+    transition: max-height 0.3s ease-out; /* Updated transition for smooth open/close */
 }
 
 .faq-short .faq-accordion .accordion-content.active {
-    display: block;
+    max-height: 500px; /* Adjust as needed */
 }
 
 /* Blog Styles */
 .blog-header {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    background: var(--primary); /* Updated background */
     color: var(--light);
-    padding: 60px 0;
+    padding: 4rem 0; /* Adjusted padding */
     text-align: center;
 }
 
@@ -1285,13 +1389,14 @@ textarea:focus {
     background: var(--gray-light);
     padding: 2rem;
     border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color); /* Added border */
     margin-bottom: 2rem;
 }
 
 .post-category {
     display: inline-block;
-    background: var(--primary);
-    color: var(--light);
+    background: var(--primary-bg-light); /* Updated background */
+    color: var(--primary); /* Updated color */
     padding: 0.25rem 0.75rem;
     border-radius: var(--border-radius);
     font-size: 0.875rem;
@@ -1323,13 +1428,14 @@ textarea:focus {
     background: var(--light);
     padding: 1.5rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
 }
 
 .blog-newsletter {
     background: var(--primary);
     color: var(--light);
-    padding: 60px 0;
+    padding: 4rem 0; /* Adjusted padding */
     text-align: center;
 }
 
@@ -1340,33 +1446,68 @@ textarea:focus {
     gap: 1rem;
 }
 
-/* FAQ Styles */
-.faq-header {
-    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+.newsletter-form input[type="email"] { /* Ensure input fields are standardized */
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    background-color: var(--light);
+    color: var(--gray-dark);
+}
+
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+.newsletter-form button { /* Standardize button */
+    background-color: var(--primary);
     color: var(--light);
-    padding: 60px 0;
+    border: 1px solid var(--primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+/* FAQ Styles */
+.faq-header { /* Assuming this is for a dedicated FAQ page */
+    background: var(--primary); /* Updated background */
+    color: var(--light);
+    padding: 4rem 0; /* Adjusted padding */
     text-align: center;
 }
 
-.category-grid {
+.category-grid { /* Assuming this is for FAQ categories */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
 }
 
-.category-card {
-    background: var(--light);
+.category-card { /* Assuming this is for FAQ category cards */
+    background: var(--gray-light); /* Updated background */
     padding: 2rem;
     border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    /* transform: translateY(-5px); */ /* Removed transform */
+    /* box-shadow: var(--shadow-lg); */ /* Removed shadow */
+    border-color: var(--primary); /* Added border color change on hover */
 }
 
 .category-card i {
@@ -1376,14 +1517,38 @@ textarea:focus {
 }
 
 /* Legal Pages Styles */
+
+/* CTA Box style for blog posts */
+.cta-box {
+    background-color: var(--gray-light);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center; /* Center the content */
+    border: 1px solid var(--border-color);
+}
+
+.cta-box h3 {
+    color: var(--dark); /* Ensure heading color */
+    margin-bottom: 0.75rem;
+}
+
+.cta-box p {
+    color: var(--gray-dark); /* Ensure paragraph color */
+    margin-bottom: 1.5rem;
+}
+
 .legal-header {
     background: var(--gray-light);
-    padding: 40px 0;
+    padding: 3rem 0; /* Adjusted padding */
     text-align: center;
+    border-bottom: 1px solid var(--border-color); /* Added border */
 }
 
 .legal-content {
     padding: var(--section-padding);
+    background-color: var(--light); /* Ensured background */
 }
 
 .legal-section {
@@ -1405,21 +1570,21 @@ textarea:focus {
 
 /* Remove Image Dependencies */
 .hero:before {
-    background: linear-gradient(
-        45deg,
-        rgba(119, 88, 255, 0.1),
-        rgba(0, 191, 166, 0.1)
-    );
+    /* background: linear-gradient( */ /* Removed gradient */
+        /* 45deg, */
+        /* rgba(119, 88, 255, 0.1), */
+        /* rgba(0, 191, 166, 0.1) */
+    /* ); */
 }
 
 .testimonial-author {
     padding-left: 0;
 }
 
-.testimonial-author i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-right: 1rem;
+.testimonial-author i { /* This selector might need to target the icon inside author-icon if that's the structure */
+    font-size: 1.5rem; /* Adjusted font-size */
+    color: var(--primary); /* Updated color */
+    margin-right: 0.5rem; /* Adjusted margin */
 }
 
 /* Media Queries */
@@ -1441,52 +1606,50 @@ textarea:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
-    background: linear-gradient(
-        135deg,
-        rgba(119, 88, 255, 0.1),
-        rgba(0, 191, 166, 0.1)
-    );
+    min-height: 400px; /* Maintained min-height, can be adjusted */
+    background: var(--light); /* Updated background */
     border-radius: var(--border-radius-lg);
     padding: 2rem;
+    border: 1px solid var(--border-color); /* Added border */
 }
 
 .hero-icon {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    font-size: 4rem;
+    font-size: 3rem; /* Updated font-size */
     color: var(--primary);
 }
 
 .hero-icon i {
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    box-shadow: var(--shadow);
+    background: var(--light); /* Updated background */
+    border-radius: 50%; /* Consider var(--border-radius-lg) or var(--border-radius) for consistency */
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .hero-icon i:hover {
-    transform: translateY(-10px);
-    color: var(--secondary);
+    /* transform: translateY(-10px); */ /* Removed transform */
+    color: var(--primary-dark); /* Updated hover color */
 }
 
 /* Testimonial Updates */
 .author-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1rem;
+    width: auto; /* Adjusted to auto or removed specific width/height */
+    height: auto;
+    /* background: var(--primary); */ /* Removed background */
+    border-radius: 0; /* Removed border-radius */
+    display: inline; /* Adjusted display */
+    /* justify-content: center; */ /* Removed flex properties */
+    /* align-items: center; */ /* Removed flex properties */
+    margin-right: 0.5rem; /* Adjusted margin */
 }
 
 .author-icon i {
-    font-size: 2rem;
-    color: var(--light);
+    font-size: 1.5rem; /* Adjusted font-size */
+    color: var(--primary); /* Updated color */
 }
 
 /* Team Visual Updates */
@@ -1497,8 +1660,8 @@ textarea:focus {
     padding: 3rem;
     background: linear-gradient(
         135deg,
-        rgba(119, 88, 255, 0.1),
-        rgba(0, 191, 166, 0.1)
+        var(--primary-bg-light), /* Using new variable */
+        color-mix(in srgb, var(--primary) 5%, var(--light)) /* Lighter mix for secondary gradient stop */
     );
     border-radius: var(--border-radius-lg);
 }
@@ -1509,13 +1672,14 @@ textarea:focus {
     padding: 2rem;
     background: var(--light);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .team-icon-grid i:hover {
-    transform: scale(1.1);
-    color: var(--secondary);
+    transform: scale(1.1); /* Kept existing hover, can be removed for flatter feel */
+    color: var(--primary-dark); /* Updated hover color */
 }
 
 /* Course Visual Updates */
@@ -1526,8 +1690,8 @@ textarea:focus {
     min-height: 300px;
     background: linear-gradient(
         135deg,
-        rgba(119, 88, 255, 0.1),
-        rgba(0, 191, 166, 0.1)
+        var(--primary-bg-light), /* Using new variable */
+        color-mix(in srgb, var(--primary) 5%, var(--light)) /* Lighter mix for secondary gradient stop */
     );
     border-radius: var(--border-radius-lg);
     padding: 2rem;
@@ -1545,13 +1709,14 @@ textarea:focus {
     padding: 1.5rem;
     background: var(--light);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */ /* Removed shadow */
+    border: 1px solid var(--border-color); /* Added border */
     transition: all var(--transition-speed) ease;
 }
 
 .course-icon-stack i:hover {
-    transform: translateX(10px);
-    color: var(--secondary);
+    /* transform: translateX(10px); */ /* Removed transform */
+    color: var(--primary-dark); /* Updated hover color */
 }
 
 /* Responsive Updates */
@@ -1606,7 +1771,7 @@ textarea:focus {
 
 /* Visual Enhancement Classes */
 .gradient-bg {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); /* Updated gradient */
 }
 
 .frost-glass {
@@ -1624,7 +1789,7 @@ textarea:focus {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(119, 88, 255, 0.2), transparent);
+    background: radial-gradient(circle, var(--primary-bg-light), transparent); /* Updated gradient */
     top: 0;
     left: 0;
     z-index: -1;
@@ -1641,6 +1806,7 @@ textarea:focus {
     background: none;
     border: none;
     padding: 0;
+    z-index: 1001; /* Ensure hamburger is above other content */
 }
 
 .bar {
@@ -1649,39 +1815,42 @@ textarea:focus {
     height: 3px;
     margin: 5px auto;
     background-color: var(--dark);
-    transition: all var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease; /* This handles the individual bar transforms */
 }
 
 /* Navigation Styles */
-.nav-links {
+.nav-links { /* This also applies to mobile nav structure */
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0; /* Moved from @media block for mobile nav transition */
+    position: fixed; /* Moved from @media block */
+    left: -100%; /* Moved from @media block */
+    top: var(--header-height); /* Moved from @media block */
+    flex-direction: column; /* Moved from @media block */
+    background-color: var(--light); /* Moved from @media block */
+    width: 100%; /* Moved from @media block */
+    height: calc(100vh - var(--header-height)); /* Moved from @media block */
+    transition: left 0.3s ease-out; /* Moved from @media block and updated */
+    border-top: 1px solid var(--border-color); /* Moved from @media block */
+    /* gap: 1rem; */ /* This was in the @media block, ensure it's handled or re-add if needed for mobile */
+}
+
+.nav-links.active { /* Moved from @media block */
+    left: 0;
 }
 
 /* Media Query for Mobile */
 @media (max-width: 768px) {
     .hamburger {
         display: block; /* Show only on mobile */
-        z-index: 101;
+        /* z-index: 101; */ /* z-index already set on base .hamburger */
     }
 
-    .nav-links {
-        position: fixed;
-        left: -100%;
-        top: var(--header-height);
-        flex-direction: column;
-        background-color: var(--light);
-        width: 100%;
-        height: calc(100vh - var(--header-height));
-        transition: 0.3s;
-        box-shadow: var(--shadow);
-        padding: 2rem;
-    }
-
-    .nav-links.active {
-        left: 0;
+    .nav-links { /* Adjusting desktop-specific styles for nav-links if they were outside @media */
+        /* If .nav-links had desktop-specific display (e.g. display:flex), reset here or ensure mobile takes precedence */
+        /* For this setup, the base .nav-links is now styled for mobile overlay first */
+        gap: 1rem; /* Re-adding gap for mobile context if it was previously only in @media */
     }
 
     .nav-links li {
@@ -1689,19 +1858,93 @@ textarea:focus {
         text-align: center;
     }
 
-    /* Hamburger Animation */
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
+    /* Hamburger Animation is defined globally now */
+
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 15px; /* Reduced container padding */
     }
 
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    section {
+        padding: var(--section-padding-mobile) 0; /* Use mobile padding, ensure no horizontal padding here */
     }
 
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    :root { /* Re-declare for specificity or ensure it's not overridden */
+      --section-padding-mobile: 2.5rem 0; /* Slightly reduce mobile section padding */
+    }
+
+    .hero {
+        padding: 4rem 0; /* Reduce hero padding further */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Adjust hero title */
+    }
+
+    h1 {
+        font-size: 2rem; /* General h1 */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* General h2 */
+    }
+
+    .cta-buttons {
+        gap: 0.5rem; /* Reduce gap for CTA buttons */
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem; /* Slightly reduce button padding */
+        font-size: 0.9rem; /* Slightly reduce button font size */
+    }
+
+     .feature-grid,
+     .prerequisites-grid,
+     .instructor-grid,
+     .pricing-grid,
+     .blog-posts,
+     .category-grid,
+     .footer-content,
+     .contact-grid { /* Ensure single column for all grids */
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Reduce gap for grids */
+    }
+
+    .course-header,
+    .enrollment-cta,
+    .contact-header,
+    .blog-header,
+    .faq-header,
+    .blog-newsletter {
+        padding: 3rem 0; /* Reduce padding for section headers */
+    }
+
+}
+
+
+/* Desktop Nav-links Adjustments (if needed, or ensure they are overridden by mobile-first approach) */
+@media (min-width: 769px) {
+    .nav-links {
+        position: static; /* Override fixed positioning */
+        left: auto;
+        top: auto;
+        flex-direction: row; /* Desktop layout */
+        background-color: transparent;
+        width: auto;
+        height: auto;
+        border-top: none;
+        padding: 0; /* Reset padding */
+        gap: 2rem; /* Original desktop gap */
+    }
+
+    .nav-links li {
+        margin: 0; /* Reset mobile margin */
     }
 }
+
 
 .pricing-details {
     background: var(--light);
@@ -1721,7 +1964,7 @@ textarea:focus {
 }
 
 .special-offers {
-    background: rgba(119, 88, 255, 0.1);
+    background: var(--primary-bg-light); /* Updated background color */
     border-radius: var(--border-radius);
     padding: 1.5rem;
     margin-top: 2rem;
@@ -1764,12 +2007,20 @@ textarea:focus {
     border: none;
     border-radius: var(--border-radius);
     font-size: 1rem;
+    background-color: var(--light); /* Ensure background color */
+    color: var(--gray-dark); /* Ensure text color */
+}
+
+.waitlist-form input[type="email"]:focus { /* Add focus style for consistency */
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
 .waitlist-form button {
-    background: var(--secondary);
+    background: var(--primary); /* Standardized to primary button */
     color: var(--light);
-    border: none;
+    border: 1px solid var(--primary); /* Standardized border */
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: 600;
@@ -1778,13 +2029,14 @@ textarea:focus {
 }
 
 .waitlist-form button:hover {
-    background: var(--secondary-dark);
-    transform: translateY(-2px);
+    background: var(--primary-dark); /* Standardized hover */
+    border-color: var(--primary-dark); /* Standardized hover border */
+    /* transform: translateY(-2px); */ /* Removed transform */
 }
 
 /* Refund Policy Highlight */
 .refund-highlight {
-    background: var(--success);
+    background: var(--primary-bg-light); /* Updated to use primary-bg-light */
     color: var(--light);
     padding: 1rem;
     border-radius: var(--border-radius);
@@ -1836,6 +2088,6 @@ textarea:focus {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--success);
+    color: var(--primary); /* Updated to use primary color */
     font-weight: bold;
 }
